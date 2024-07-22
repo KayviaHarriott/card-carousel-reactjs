@@ -3,6 +3,9 @@
   "private": false,
   "version": "2.1.2",
   "type": "module",
+  "main": "dist/card-carousel-reactjs.umd.js",
+  "module": "dist/card-carousel-reactjs.es.js",
+  "types": "dist/**/main.d.ts",
   
   "scripts": {
     "dev": "vite",

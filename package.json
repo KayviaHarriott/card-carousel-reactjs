@@ -1,12 +1,12 @@
 {
   "name": "card-carousel-reactjs",
   "private": false,
-  "version": "2.1.1",
+  "version": "2.1.2",
   "type": "module",
   
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

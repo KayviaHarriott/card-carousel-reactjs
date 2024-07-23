@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-import { CardCarousel } from "card-carousel-reactjs";
+// import { CardCarousel } from "card-carousel-reactjs";
+import { CardCarousel } from "./component/CardCarousel";
 function App() {
   return (
     <>

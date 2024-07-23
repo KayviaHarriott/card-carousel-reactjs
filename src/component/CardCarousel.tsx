@@ -15,11 +15,10 @@ interface CardCarouselProps {
 
 export const CardCarousel: React.FC<CardCarouselProps> = ({
   items,
-  width,
-  height,
+  width = 350,
+  height = 150,
 }) => {
   const [cardValue, setCardValue] = useState(0);
-  const cardArrayLength = items.length;
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -30,19 +29,29 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleDownButton = () => {
-    if (cardValue < cardArrayLength - 1) {
-      setCardValue(cardValue + 1);
-    }
+  const handleButtonClick = (direction: "up" | "down") => {
+    setCardValue((prev) =>
+      direction === "up"
+        ? Math.max(0, prev - 1)
+        : Math.min(items.length - 1, prev + 1)
+    );
   };
 
-  const handleUpButton = () => {
-    if (cardValue != 0) {
-      setCardValue(cardValue - 1);
-    }
+  const isDisabled = (direction: "up" | "down") =>
+    (direction === "up" && cardValue === 0) ||
+    (direction === "down" && cardValue === items.length - 1);
+
+  const MUI_ButtonStyle = {
+    width: "fit-content",
+    padding: 0,
+    minWidth: "fit-content",
   };
 
-  const MUI_ButtonStyle = {}; //{ padding: "0px", margin: "0px" };
+  const ArrowUpDownIcon =
+    screenSize > 1024 ? KeyboardArrowUpIcon : KeyboardArrowLeftIcon;
+  const ArrowDownUpIcon =
+    screenSize > 1024 ? KeyboardArrowDownIcon : KeyboardArrowRightIcon;
+
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center gap-[8px]">
       <Box
@@ -52,8 +61,8 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
         <div className="flex flex-col lg:flex-row justify-center items-center gap-[24px]">
           <Box
             sx={{
-              width: width ? width : "350px",
-              height: height ? height : "150px",
+              width: width,
+              height: height,
             }}
             className="py-[4px] pl-[4px] pr-[24px] overflow-x-auto"
           >
@@ -81,42 +90,26 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
       </Box>
       <div className="flex flex-row lg:flex-col">
         <Button
+          variant="text"
           sx={[
             MUI_ButtonStyle,
-            {
-              color: cardValue == 0 ? "lightgray" : "black",
-              cursor: cardValue == 0 ? "default" : "pointer",
-              width: "0px",
-            },
+            { color: isDisabled("up") ? "lightgray" : "black" },
           ]}
-          variant="text"
-          disabled={cardValue == 0 ? true : false}
-          onClick={() => handleUpButton()}
+          disabled={isDisabled("up")}
+          onClick={() => handleButtonClick("up")}
         >
-          <Box hidden={screenSize > 1024 ? false : true}>
-            <KeyboardArrowUpIcon />
-          </Box>
-          <Box hidden={screenSize > 1024 ? true : false}>
-            <KeyboardArrowLeftIcon />
-          </Box>
+          <ArrowUpDownIcon />
         </Button>
         <Button
+          variant="text"
           sx={[
             MUI_ButtonStyle,
-            {
-              color: cardValue == cardArrayLength - 1 ? "lightgray" : "black",
-            },
+            { color: isDisabled("down") ? "lightgray" : "black" },
           ]}
-          variant="text"
-          disabled={cardValue == cardArrayLength - 1 ? true : false}
-          onClick={() => handleDownButton()}
+          disabled={isDisabled("down")}
+          onClick={() => handleButtonClick("down")}
         >
-          <Box hidden={screenSize > 1024 ? false : true}>
-            <KeyboardArrowDownIcon />
-          </Box>
-          <Box hidden={screenSize > 1024 ? true : false}>
-            <KeyboardArrowRightIcon />
-          </Box>
+          <ArrowDownUpIcon />
         </Button>
       </div>
     </div>

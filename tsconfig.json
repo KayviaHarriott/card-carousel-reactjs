@@ -19,7 +19,9 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "sourceMap": true  // Optional for debugging
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"]  // Optional, adjust based on your needs
 }

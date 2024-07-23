@@ -1,7 +1,7 @@
 {
   "name": "card-carousel-reactjs",
   "private": false,
-  "version": "3.1.0",
+  "version": "3.1.2",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -33,5 +33,17 @@
     "tailwindcss": "^3.4.6",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
+  },
+  "keywords": [
+    "mui",
+    "reactjs",
+    "vite",
+    "typescript",
+    "card",
+    "carousel"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KayviaHarriott/card-carousel-reactjs"
   }
 }

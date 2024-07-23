@@ -11,7 +11,7 @@ npm install card-carousel-reactjs
 ## Usage
 To use the CardCarousel component, import it into your project and pass an array of ReactNode items to it.
 
-```
+```js
 import CardCarousel from 'card-carousel-reactjs';
 
 // Use the CardCarousel component
@@ -39,7 +39,7 @@ The CardCarousel component accepts the following props:
 
 To customize the width and height of the carousel items:
 
-```
+```js
 <CardCarousel
   items={[
     <div>Card One</div>,
@@ -53,10 +53,4 @@ To customize the width and height of the carousel items:
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps to contribute:
-
-Fork the repository.
-Create a new branch (git checkout -b feature-branch).
-Make your changes and commit them (git commit -am 'Add new feature').
-Push to the branch (git push origin feature-branch).
-Create a new Pull Request.
+Contributions will be welcomed soon... once issues are created!

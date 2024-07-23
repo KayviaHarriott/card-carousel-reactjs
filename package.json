@@ -1,12 +1,10 @@
 {
   "name": "card-carousel-reactjs",
   "private": false,
-  "version": "2.1.2",
+  "version": "3.1.0",
   "type": "module",
-  "main": "dist/card-carousel-reactjs.umd.js",
-  "module": "dist/card-carousel-reactjs.es.js",
-  "types": "dist/**/main.d.ts",
-  
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc",

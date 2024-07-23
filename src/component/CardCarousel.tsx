@@ -56,7 +56,7 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
     <div className="flex flex-col lg:flex-row justify-center items-center gap-[8px]">
       <Box
         className="p-[16px] rounded-lg flex"
-        sx={{ boxShadow: "8px 8px 10px 2px rgba(0,0,0,0.2)" }}
+        sx={{ boxShadow: "8px 8px 10px 2px rgba(0,0,0,0.2)", backgroundColor: "white" }}
       >
         <div className="flex flex-col lg:flex-row justify-center items-center gap-[24px]">
           <Box

@@ -20,7 +20,7 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
 }) => {
   const [cardValue, setCardValue] = useState(0);
   const cardArrayLength = items.length;
-  const [screenSize, setScreenSize] = useState(0); // = window.screen.availWidth
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
